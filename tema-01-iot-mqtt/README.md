@@ -1,6 +1,6 @@
 # Tema 01 – Aplicație IoT cu taskuri periodice, sporadice și aperiodice
 
-**Tehnologii:** Java 21, Maven, MQTT (Eclipse Paho), diagrame UML
+**Tehnologii:** Java 17+, Maven, MQTT (Eclipse Paho), diagrame UML
 **Termen de predare:** _de stabilit_
 
 ## Obiective
@@ -109,6 +109,20 @@ Traficul se poate urmări și cu clientul `mosquitto_sub`, dacă este instalat:
 mosquitto_sub -h control.aut.utcluj.ro -p 11188 -t 'ssatr/popescu-ion/#' -v
 ```
 
+### `exemple/03-diagrame/`
+
+Exemple simple de diagrame, desenate în [draw.io](https://app.diagrams.net). Sursa editabilă este `exemple-diagrame.drawio`, cu câte un tab pentru fiecare diagramă. Alături se află imaginile exportate:
+
+| Tab | Imagine | Ce arată |
+|-----|---------|----------|
+| Diagramă de timp | [`diagrama-de-timp.png`](exemple/03-diagrame/diagrama-de-timp.png) | notația din curs: eliberări, joburi, timpul petrecut în Ready, preempțiuni, termene-limită absolute, un eveniment sporadic respins, un task aperiodic |
+| Diagramă de componente | [`diagrama-de-componente.png`](exemple/03-diagrame/diagrama-de-componente.png) | componente UML și interfețele oferite / folosite între ele |
+| Diagramă de secvență | [`diagrama-de-secventa.png`](exemple/03-diagrame/diagrama-de-secventa.png) | participanți, mesaje sincrone, răspunsuri și un mesaj asincron |
+
+Diagramele de componente și de secvență sunt generice: ilustrează doar notația, nu soluția temei.
+
+Fișierul `.drawio` se deschide cu aplicația draw.io (desktop), în browser pe [app.diagrams.net](https://app.diagrams.net) sau cu extensia Draw.io Integration din VS Code / IntelliJ.
+
 ### `start/`
 
 Două proiecte Maven care compilează. Sunt deja implementate conexiunea MQTT (`MqttConnection`), senzorul simulat (`TemperatureSensor`) și stocarea în fișiere CSV (`CsvStorage`). Locurile unde trebuie să lucrați sunt marcate cu `TODO 1` … `TODO 6`.
@@ -168,22 +182,27 @@ Comenzile pe care trebuie să le accepte device-ul:
 
 ### 3. Diagrame
 
-În folderul `diagrame/` al soluției, ca sursă PlantUML sau Mermaid, plus imagine exportată:
+În folderul `diagrame/` al soluției, ca sursă PlantUML, Mermaid sau draw.io, plus imagine exportată:
 
-- **diagrama de componente** a sistemului;
-- **diagrama de secvență** pentru două scenarii:
+- **diagrama de componente** a sistemului (vezi exemplul din `exemple/03-diagrame/`);
+- **diagrama de secvență** (vezi exemplul din `exemple/03-diagrame/`) pentru două scenarii:
   - telemetrie care depășește pragul și produce o alarmă;
   - operatorul trimite `SET_INTERVAL`, iar device-ul confirmă;
-- **diagrama de timp** (timing) pentru cele trei taskuri ale device-ului pe un interval de ~10 s: eliberările și joburile taskului periodic, o alarmă respinsă din cauza intervalului minim între sosiri și un job al taskului aperiodic.
+- **diagrama de timp** (vezi exemplul din `exemple/03-diagrame/`) pentru cele trei taskuri ale device-ului pe un interval de ~10 s: eliberările și joburile taskului periodic, o alarmă respinsă din cauza intervalului minim între sosiri și un job al taskului aperiodic.
 
-## Ce se predă
+## Predare
+
+Soluția se află în fork-ul vostru, în folderul `tema-01-iot-mqtt/`:
 
 ```
-tema-01/
-├── device-simulator/     # proiectul complet
-├── business-service/     # proiectul complet
-└── diagrame/
+tema-01-iot-mqtt/
+├── start/
+│   ├── device-simulator/     # proiectul completat
+│   └── business-service/     # proiectul completat
+└── diagrame/                 # diagramele cerute
 ```
+
+După push, adăugați commit ID-ul soluției (`git rev-parse HEAD`) ca **comentariu** la assignment-ul temei din **Microsoft Teams** și apăsați **Turn in**. Detalii în [README-ul principal](../README.md#predare).
 
 ## Bibliografie
 

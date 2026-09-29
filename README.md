@@ -18,6 +18,20 @@ Fiecare temă se află într-un subfolder separat și conține enunțul (`README
 - **Servicii de mesagerie** – RabbitMQ, Kafka, MQTT etc.
 - **Diagrame** – UML (secvență, stări, activitate, componente), rețele Petri, diagrame de timp
 
+## Unelte necesare
+
+- **Java** JDK 17 – 21
+- **IDE**: IntelliJ IDEA sau NetBeans
+- **Maven** (inclus în IntelliJ și NetBeans)
+- **Arduino IDE**
+- **git**
+- cont **GitHub**
+- **Docker** și **Docker Compose**
+- **MQTTX** 
+- **draw.io**
+- client **SSH**
+- placă de dezvoltare **ESP32**
+
 ## Structura unei teme
 
 ```
@@ -29,7 +43,20 @@ tema-NN-nume-scurt/
 
 ## Cum se lucrează
 
-1. Faceți un fork (sau clonați) acest repository.
+1. Faceți un fork al acestui repository. Lucrați în fork-ul vostru.
 2. Citiți enunțul din `README.md` al temei.
 3. Dacă tema are un folder `start/`, porniți de la acesta.
-4. Predați soluția conform instrucțiunilor din enunțul temei.
+4. Faceți commit și push cu soluția în fork-ul vostru.
+
+## Predare
+
+Tema se predă în **Microsoft Teams**, la assignment-ul corespunzător temei:
+
+1. Aflați commit ID-ul soluției finale, după push:
+   ```bash
+   git rev-parse HEAD
+   ```
+2. Adăugați commit ID-ul ca si **comentariu** la assignment.
+3. Apăsați **Turn in**.
+
+Se evaluează exact commit-ul indicat. Commit-urile făcute după predare nu sunt luate în considerare.
