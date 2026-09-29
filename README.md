@@ -9,6 +9,9 @@ Fiecare temă se află într-un subfolder separat și conține enunțul (`README
 | Nr. | Temă | Tehnologii |
 |-----|------|------------|
 | 01  | [Aplicație IoT cu taskuri periodice, sporadice și aperiodice](tema-01-iot-mqtt/) | Java, MQTT, diagrame UML |
+| 02  | | |
+| 03  | | |
+| 04  | | |
 
 ## Tehnologii folosite
 
